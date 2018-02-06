@@ -1,0 +1,7 @@
+.link_class {
+    color: black;
+}
+
+.link_class:visited {
+    color: black;
+}

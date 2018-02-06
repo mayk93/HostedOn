@@ -5,7 +5,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'index.js',
-        libraryTarget: 'commonjs2'
+        libraryTarget: 'umd'
     },
     module: {
         rules: [
@@ -19,7 +19,8 @@ module.exports = {
                         presets: ['env']
                     }
                 }
-            }
+            },
+            {test: /\.css$/, use: ['css-loader']}
         ]
     },
     externals: {
