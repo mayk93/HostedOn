@@ -1,6 +1,6 @@
 {
   "name": "hosted_on",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple footer component for React displaying where the source is hosted on.",
   "main": "build/index.js",
   "license": "MIT",
@@ -13,8 +13,7 @@
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-fontawesome": "^1.6.1",
-    "webpack": "^2.7.0"
+    "react-fontawesome": "^1.6.1"
   },
   "scripts": {
     "test": "bash test_package.sh",
@@ -28,10 +27,22 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
+    "babel-jest": "^22.1.0",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.5.1",
-    "css-loader": "^0.28.9"
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "jest": "^22.1.4",
+    "react-test-renderer": "^16.2.0",
+    "webpack": "^2.7.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+        "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }
