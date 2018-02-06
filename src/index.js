@@ -40,7 +40,8 @@ class HostedOn extends Component {
 
         this.state = {
             link: link,
-            icon: icon
+            icon: icon,
+            new_tab: !!props.new_tab // ToDo: Implement this feature
         }
     }
 

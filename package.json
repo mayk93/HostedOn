@@ -1,6 +1,6 @@
 {
   "name": "hosted_on",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple footer component for React displaying where the source is hosted on.",
   "main": "build/index.js",
   "license": "MIT",
