@@ -25,6 +25,7 @@ exports[`HostedOn has expected structure 1`] = `
           "flex": 1,
         }
       }
+      title="https://en.wikipedia.org/wiki/Internet"
     >
       Hosted on
       <div
