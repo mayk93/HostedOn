@@ -33,7 +33,7 @@ class HostedOn extends Component {
         return (
             <div>
                 <div style={footer_style}>
-                    <div style={inner_footer_style}>
+                    <div title={this.state.link} style={inner_footer_style}>
                         Hosted on
                         <div onClick={() => go_to(this.state.link, this.state.new_tab)} style={icon_div_style}>
                             <FontAwesome

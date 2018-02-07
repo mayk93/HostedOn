@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HostedOn has expected structure 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "backgroundColor": "#F8F8F8",
+        "borderTop": "1px solid #E7E7E7",
+        "bottom": "0",
+        "height": "25px",
+        "left": "0",
+        "padding": "20px",
+        "position": "fixed",
+        "textAlign": "center",
+        "width": "100%",
+        "zIndex": 10,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "cursor": "pointer",
+          "flex": 1,
+        }
+      }
+    >
+      Hosted on
+      <div
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "black",
+            "display": "inline-flex",
+          }
+        }
+      >
+        <span
+          aria-hidden={true}
+          className="fa fa-cloud fa-2x"
+          style={
+            Object {
+              "marginLeft": "5px",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

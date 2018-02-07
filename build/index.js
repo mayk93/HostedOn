@@ -775,7 +775,7 @@ var HostedOn = function (_Component) {
                     { style: _Footer.footer_style },
                     _react2.default.createElement(
                         'div',
-                        { style: _Footer.inner_footer_style },
+                        { title: this.state.link, style: _Footer.inner_footer_style },
                         'Hosted on',
                         _react2.default.createElement(
                             'div',
