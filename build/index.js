@@ -721,14 +721,26 @@ var HostedOn = function (_Component) {
 
         _this.state = {
             link: link,
-            icon: icon
+            icon: icon,
+            new_tab: !!props.new_tab
         };
         return _this;
     }
 
     _createClass(HostedOn, [{
+        key: 'go_to',
+        value: function go_to() {
+            if (this.state.new_tab) {
+                window.open(this.state.link, '_blank').focus();
+            } else {
+                window.open(this.state.link, '_self');
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 'div',
                 null,
@@ -737,11 +749,13 @@ var HostedOn = function (_Component) {
                     { style: _Footer.footer_style },
                     _react2.default.createElement(
                         'div',
-                        { style: { flex: 1 } },
+                        { style: { flex: 1, cursor: "pointer" } },
                         'Hosted on',
                         _react2.default.createElement(
-                            'a',
-                            { href: this.state.link, className: 'link_class', style: { color: "black" } },
+                            'div',
+                            { onClick: function onClick() {
+                                    return _this2.go_to();
+                                }, style: { color: "black" } },
                             _react2.default.createElement(_reactFontawesome2.default, {
                                 name: this.state.icon,
                                 size: '2x',
