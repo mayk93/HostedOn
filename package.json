@@ -1,6 +1,6 @@
 {
   "name": "hosted_on",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "A simple footer component for React displaying where the source is hosted on.",
   "main": "build/index.js",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "url": "git@github.com:mayk93/HostedOn.git"
   },
   "peerDependencies": {
-    "react": "^15.5.4"
+    "react": "^16.2.0"
   },
   "dependencies": {
     "react": "^16.2.0",
@@ -40,8 +40,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/__mocks__/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
     }
   }

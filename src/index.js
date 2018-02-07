@@ -41,7 +41,15 @@ class HostedOn extends Component {
         this.state = {
             link: link,
             icon: icon,
-            new_tab: !!props.new_tab // ToDo: Implement this feature
+            new_tab: !!props.new_tab
+        }
+    }
+
+    go_to() {
+        if (this.state.new_tab) {
+            window.open(this.state.link, '_blank').focus();
+        } else {
+            window.open(this.state.link, '_self');
         }
     }
 
@@ -49,15 +57,15 @@ class HostedOn extends Component {
         return (
             <div>
                 <div style={footer_style}>
-                    <div style={{flex: 1}}>
+                    <div style={{flex: 1, cursor: "pointer"}}>
                         Hosted on
-                        <a href={this.state.link} className="link_class" style={{color: "black"}}>
+                        <div onClick={() => this.go_to()} style={{color: "black"}}>
                             <FontAwesome
                                 name={this.state.icon}
                                 size="2x"
                                 style={{marginLeft: "5px"}}
                             />
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
