@@ -14,3 +14,11 @@ export let footer_style = {
     width: "100%",
     zIndex: 10
 };
+
+export let icon_div_style = {
+    color: "black", display: "inline-flex"
+};
+
+export let inner_footer_style = {
+    flex: 1, cursor: "pointer"
+};

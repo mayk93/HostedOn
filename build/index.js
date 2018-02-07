@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -489,11 +489,55 @@ var footer_style = exports.footer_style = {
     zIndex: 10
 };
 
+var icon_div_style = exports.icon_div_style = {
+    color: "black", display: "inline-flex"
+};
+
+var inner_footer_style = exports.inner_footer_style = {
+    flex: 1, cursor: "pointer"
+};
+
 /***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(10)(false);
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
+ * Created by michael on 07/02/2018.
+ */
+
+var hosting_providers = ["github", "bitbucket", "gitlab", "phabricator", "dropbox"];
+
+var icon_heuristic = exports.icon_heuristic = function icon_heuristic(link) {
+    var icon = "cloud";
+
+    hosting_providers.map(function (provider) {
+        if (link.indexOf(provider) !== -1) {
+            icon = provider;
+        }
+    });
+
+    return icon;
+};
+
+var go_to = exports.go_to = function go_to(url, new_tab) {
+    if (new_tab) {
+        window.open(url, '_blank').focus();
+    } else {
+        window.open(url, '_self');
+    }
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
 // imports
 
 
@@ -504,7 +548,7 @@ exports.push([module.i, ".link_class {\n    color: black;\n}\n\n.link_class:visi
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -522,11 +566,11 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(15);
+var _propTypes = __webpack_require__(16);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _screenReaderStyles = __webpack_require__(16);
+var _screenReaderStyles = __webpack_require__(17);
 
 var _screenReaderStyles2 = _interopRequireDefault(_screenReaderStyles);
 
@@ -651,7 +695,7 @@ exports.default = FontAwesome;
 module.exports = exports['default'];
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -667,13 +711,15 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactFontawesome = __webpack_require__(8);
+var _reactFontawesome = __webpack_require__(9);
 
 var _reactFontawesome2 = _interopRequireDefault(_reactFontawesome);
 
+var _utils = __webpack_require__(7);
+
 var _Footer = __webpack_require__(6);
 
-__webpack_require__(7);
+__webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -691,22 +737,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* Font Awesome */
 
 
+/* Constants and functons */
+
+
 /* Inline styles and CSS */
 
-
-var hosting_providers = ["github", "bitbucket", "gitlab"];
-
-var icon_heuristic = function icon_heuristic(link) {
-    var icon = "cloud";
-
-    hosting_providers.map(function (provider) {
-        if (link.indexOf(provider) !== -1) {
-            icon = provider;
-        }
-    });
-
-    return icon;
-};
 
 var HostedOn = function (_Component) {
     _inherits(HostedOn, _Component);
@@ -717,7 +752,7 @@ var HostedOn = function (_Component) {
         var _this = _possibleConstructorReturn(this, (HostedOn.__proto__ || Object.getPrototypeOf(HostedOn)).call(this, props));
 
         var link = props.link ? props.link : "https://en.wikipedia.org/wiki/Internet";
-        var icon = props.icon ? props.icon : icon_heuristic(link);
+        var icon = props.icon ? props.icon : (0, _utils.icon_heuristic)(link);
 
         _this.state = {
             link: link,
@@ -728,15 +763,6 @@ var HostedOn = function (_Component) {
     }
 
     _createClass(HostedOn, [{
-        key: 'go_to',
-        value: function go_to() {
-            if (this.state.new_tab) {
-                window.open(this.state.link, '_blank').focus();
-            } else {
-                window.open(this.state.link, '_self');
-            }
-        }
-    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -749,13 +775,13 @@ var HostedOn = function (_Component) {
                     { style: _Footer.footer_style },
                     _react2.default.createElement(
                         'div',
-                        { style: { flex: 1, cursor: "pointer" } },
+                        { style: _Footer.inner_footer_style },
                         'Hosted on',
                         _react2.default.createElement(
                             'div',
                             { onClick: function onClick() {
-                                    return _this2.go_to();
-                                }, style: { color: "black" } },
+                                    return (0, _utils.go_to)(_this2.state.link, _this2.state.new_tab);
+                                }, style: _Footer.icon_div_style },
                             _react2.default.createElement(_reactFontawesome2.default, {
                                 name: this.state.icon,
                                 size: '2x',
@@ -774,7 +800,7 @@ var HostedOn = function (_Component) {
 exports.default = HostedOn;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 /*
@@ -856,7 +882,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -953,7 +979,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1020,7 +1046,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1085,7 +1111,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1101,10 +1127,10 @@ module.exports = function() {
 var emptyFunction = __webpack_require__(1);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(5);
-var assign = __webpack_require__(11);
+var assign = __webpack_require__(12);
 
 var ReactPropTypesSecret = __webpack_require__(3);
-var checkPropTypes = __webpack_require__(12);
+var checkPropTypes = __webpack_require__(13);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -1635,7 +1661,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1660,17 +1686,17 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(14)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(15)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(13)();
+  module.exports = __webpack_require__(14)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -8,28 +8,12 @@ import React, {Component} from 'react';
 /* Font Awesome */
 import FontAwesome from 'react-fontawesome';
 
+/* Constants and functons */
+import {icon_heuristic, go_to} from './utils';
 
 /* Inline styles and CSS */
-import {footer_style} from './style/js/Footer';
+import {footer_style, inner_footer_style, icon_div_style} from './style/js/Footer';
 import './style/css/Footer.css';
-
-let hosting_providers = [
-    "github",
-    "bitbucket",
-    "gitlab"
-];
-
-let icon_heuristic = (link) => {
-    let icon = "cloud";
-
-    hosting_providers.map((provider) => {
-        if (link.indexOf(provider) !== -1) {
-            icon = provider;
-        }
-    });
-
-    return icon;
-};
 
 class HostedOn extends Component {
     constructor(props) {
@@ -45,21 +29,13 @@ class HostedOn extends Component {
         }
     }
 
-    go_to() {
-        if (this.state.new_tab) {
-            window.open(this.state.link, '_blank').focus();
-        } else {
-            window.open(this.state.link, '_self');
-        }
-    }
-
     render() {
         return (
             <div>
                 <div style={footer_style}>
-                    <div style={{flex: 1, cursor: "pointer"}}>
+                    <div style={inner_footer_style}>
                         Hosted on
-                        <div onClick={() => this.go_to()} style={{color: "black"}}>
+                        <div onClick={() => go_to(this.state.link, this.state.new_tab)} style={icon_div_style}>
                             <FontAwesome
                                 name={this.state.icon}
                                 size="2x"
